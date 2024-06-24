@@ -1,3 +1,4 @@
 recaptcha API key
 Terms of service link
 continue with google
+forgot password button
