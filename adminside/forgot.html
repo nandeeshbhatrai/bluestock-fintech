@@ -4,7 +4,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Sign In | Bluestock Fintech</title>
+    <title>Forgot Password? | Bluestock Fintech</title>
     
       <!-- Google Analytics -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-E8CRE5LTRB"></script>
@@ -215,11 +215,7 @@
     flex-direction: column;
     color: black;
    }
-
-   label{
-    margin-bottom: 8px;
-   }
-
+   
    #logo_top_div{
     display: flex;
     align-items: center;
@@ -232,62 +228,24 @@
     margin-bottom: 40px;
    }
 
-   #email{
-    margin-bottom: 16px;
-   }
-
-   .g-recaptcha{
-    margin-top: 24px;
-   }
-
-   #logindiv{
-        margin-top: 16px;
+   #create{
+    color: black;
+    text-align: center;
    }
 
    #login{
     width: 100%;
-    background: #685CFF;
+    background: var(--indigo);
+    margin-top: 20px;
+    margin-bottom: 20px;
    }
 
-   #signinwith{
-    margin-top: 16px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 20px;
-   }
-
-   #divline{
-    height: 2px;
-    width: 100%;
-    background: #F4F5F7;
-    position: inherit;
-    z-index: -1;
-   }
-
-   #signintext{
-    display: flex;
-    height: 36px;
-    width: 128px;
-    background: #F4F5F7;
-    position:absolute;
-    align-items: center;
-    justify-content: center;
-   }
-
-   .col-md-3{
-    margin-top: 16px;
-    margin-bottom: 36px;
-    background: #E4E7EB;
-    width: 100%;
-    border-radius: 5px;
-   }
-
-   #createacc{
-     color: #3F52FF;
-     display: flex;
-     align-items: center;
-     justify-content: center;
+   #logindiv{
+        margin-top: 16px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
    }
    </style>
 
@@ -297,43 +255,20 @@
         <div id="logo_top_div">
             <img src="./Assets/site_logo.png" alt="bluestockfintech.com" id="logo_top">
         </div>
+        <div id="create">
+            <h5><strong>Forgot Password?</strong></h5>
+            <p style="color: var(--gray);">Enter your email address to get the password reset link.</p>
+        </div>
         <form class="emailpass">
             <div class="form-group" id="email">
                 <label>Email address</label>
                 <input type="email" class="form-control" aria-describedby="emailHelp" placeholder="johndoe@gmail.com">
             </div>
-            <div class="form-group">
-              <div style="display: flex;justify-content: space-between;align-items: center;width: 100%;">
-                <label>Password</label>
-                <small><a href="forgot.html" style="color: var(--blue);">Forgot Password?</a></small  >
-              </div>
-                <div class="input-group" id="show_hide_password">
-                    <input type="password" class="form-control" id="exampleInputPassword1" placeholder=". . . . . . . . . . . . . . .">
-                    <div class="input-group-addon">
-                        <i class="bi bi-eye-slash"></i>
-                    </div>
-                </div>
-            </div>
         </form>
-            <div class="g-recaptcha" data-sitekey="<API_KEY>"></div>
         <div id="logindiv">
-            <div class="form-group form-check">
-                <input type="checkbox" class="form-check-input" id="exampleCheck1">
-                <label class="form-check-label" for="exampleCheck1">Keep me signed in</label>
-            </div>  
-            <button type="button" class="btn btn-outline-light" id="login">Login</button>
+            <button type="button" class="btn btn-outline-light" id="login">Password Reset</button>
+            <a href="signin.html">Back to login</a>
         </div>
-        <div id="signinwith">
-            <div id="divline"></div>
-            <div id="signintext"><span style="color: #999DA3;">or sign in with</span></div>
-        </div>
-        <div class="col-md-3">
-            <a class="btn btn-outline-dark" href="" role="button" style="text-transform:none; width: 100%; border: none;">
-            <img width="20px" style="margin-bottom:3px; margin-right:5px" alt="Google sign-in" src="./Assets/google.png" />
-            Continue with Google
-            </a>
-        </div>
-        <div id="createacc"><a href="signup.html" style="font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif; color: #3F52FF;">Create an account</a></div>
     </div>
 </body>
 </html>
