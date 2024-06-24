@@ -1,0 +1,63 @@
+<!-- home.html -->
+{% extends 'base/base.html' %}
+
+{% block title %}Upcomming IPO{% endblock %}
+
+{% block content %}
+<nav class="mx-5 my-3" style="--bs-breadcrumb-divider: url(&#34;data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='8' height='8'%3E%3Cpath d='M2.5 0L1 1.5 3.5 4 1 6.5 2.5 8l4-4-4-4z' fill='%236c757d'/%3E%3C/svg%3E&#34;);" aria-label="breadcrumb">
+    <ol class="breadcrumb">
+      <li class="breadcrumb-item"><a href="">Home</a></li>
+      <li class="breadcrumb-item"><a href="{% url 'ipo' %}">IPO</a></li>
+      <li class="breadcrumb-item active" aria-current="page"><a href="{% url 'upcomming' %}" style="color: blue;">Upcomming IPO</a></li>
+    </ol>
+  </nav>
+  
+  <div class="mx-5 my-3">
+    <h3>Upcomming Page</h3>
+    <p>Companies that have filled for an IPO with SEBI. Few details might be disclosed by the companies later.</p>
+  </div>
+
+  <div class="row">
+    <div class="col-sm-6">
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title">Special title treatment</h5>
+          <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+          <a href="#" class="btn btn-primary">Go somewhere</a>
+        </div>
+      </div>
+    </div>
+    <div class="col-sm-6">
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title">Special title treatment</h5>
+          <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+          <a href="#" class="btn btn-primary">Go somewhere</a>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+{% endblock %}

@@ -1,0 +1,362 @@
+<!-- base.html -->
+<!-- {% load static %} -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Sign In | Bluestock Fintech</title>
+    
+      <!-- Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-E8CRE5LTRB"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+    gtag('config', 'G-E8CRE5LTRB');
+  </script>
+  <!-- End Google Analytics -->
+
+  <!-- Clarity tracking code for https://bluestock.in/ -->
+  <script>    (function (c, l, a, r, i, t, y) { c[a] = c[a] || function () { (c[a].q = c[a].q || []).push(arguments) }; t = l.createElement(r); t.async = 1; t.src = "https://www.clarity.ms/tag/" + i + "?ref=bwt"; y = l.getElementsByTagName(r)[0]; y.parentNode.insertBefore(t, y); })(window, document, "clarity", "script", "jw1evvk9c6");</script>
+
+  <!-- Push Notifications -->
+  <script src="https://cdn.onesignal.com/sdks/web/v16/OneSignalSDK.page.js" defer></script>
+  <script>
+    window.OneSignalDeferred = window.OneSignalDeferred || [];
+    OneSignalDeferred.push(function (OneSignal) {
+      OneSignal.init({
+        appId: "ecf6e4f9-156f-4a7c-858b-f3360a044796",
+      });
+    });
+  </script>
+  <meta property="og:locale" content="en_GB" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Bluestock" />
+  <meta property="og:image:width" content="700" />
+  <meta property="og:image:height" content="450" />
+  <meta name="image:width" content="700" />
+  <meta name="image:height" content="450" />
+  <meta name="twitter:creator" content="@bluestockfintech" />
+  <meta property="og:image:type" content="/assets/img/jpg" />
+  <meta property="og:image:type" content="/assets/svg/" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  
+<!--Start Favicon Metadata -->
+<link rel="icon" type="image/x-icon" href="favicon.ico" />
+<link rel="apple-touch-icon" sizes="180x180" href="/assets/favicon_io/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon_io/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon_io/favicon-16x16.png">
+<link rel="shortcut icon" sizes="192x192" href="/assets/favicon_io/android-chrome-192x192.png" />
+<link rel="shortcut icon" sizes="256x256" href="/assets/favicon_io/android-chrome-512x512.png" />
+<link rel="manifest" href="/assets/favicon_io/site.webmanifest">
+<!-- End Favicon Metadata -->
+
+  <!-- SEO Metadata -->
+  <title>Bluestock Fintech Android App | Home</title>
+  <meta name="description"
+    content="Bluestock Fintech is a mobile app offering stock market learning, analytics and trader community">
+  <meta property="og:title" content="Bluestock Fintech">
+  <meta property="og:image" content="https://bluestock.in/website/assets/images/dp.jpg">
+  <meta property="og:url" content="bluestock.in">
+  <meta property="og:url" content="https://bluestock.in/" />
+  <meta name="robots" content="index, follow">
+  <meta name="author" content="Bluestock Fintech">
+  <meta name="keywords"
+    content="Stock Market, Analytics, trading, trader's community, trading, Demat, Share Market, Option Trading, Banknifty, Options, Bluestock, Fintech">
+  <meta property="og:description"
+    content="Bluestock Fintech is a mobile app offering stock market learning, analytics and trader community" />
+  <meta name="twitter:description"
+    content="Bluestock Fintech is a mobile app offering stock market learning, analytics and trader community" />
+  <meta name="twitter:title" content="Bluestock - Learn Stock Market Charts" />
+
+
+  <title>Home - Bluestock Fintech</title>
+  <!-- Bootstrap icons-->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" rel="stylesheet" />
+  <!-- Bootstrap 5 CDN-->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+  <!-- Font awesome icons-->
+  <link rel="stylesheet" href=" https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <!-- Google Fonts - Poppins -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+
+  <!-- Custom CSS-->
+  <style>
+  
+    :root {
+       --blue: #436AF5;
+       --indigo: #6610f2;
+       --purple: #6f42c1;
+       --pink: #e83e8c;
+       --red: #dc3545;
+       --orange: #fd7e14;
+       --yellow: #ffc107;
+       --green: #28a745;
+       --teal: #20c997;
+       --cyan: #17a2b8;
+       --white: #fff;
+       --gray: #6c757d;
+       --gray-dark: #343a40;
+       --primary: #436AF5;
+       --secondary: #bec9d3;
+       --success: #28a745;
+       --info: #17a2b8;
+       --warning: #ffc107;
+       --danger: #dc3545;
+       --light: #f8f9fa;
+       --dark: #343a40;
+       --breakpoint-xs: 0;
+       --breakpoint-sm: 576px;
+       --breakpoint-md: 768px;
+       --breakpoint-lg: 992px;
+       --breakpoint-xl: 1200px;
+       --font-family-sans-serif: 'Poppins', sans-serif;
+       --font-family-monospace: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+     }
+     *, ::after, ::before {
+       box-sizing: border-box;
+     }
+     html {
+       font-family: Poppins, sans-serif;
+       line-height: 1.15;
+       -webkit-text-size-adjust: 100%;
+       -webkit-tap-highlight-color: transparent;
+     }
+     footer, header, main, nav, section {
+       display: block;
+     }
+     body {
+       margin: 0;
+       font-family: Poppins, sans-serif;
+       font-size: 1rem;
+       font-weight: 400;
+       line-height: 1.5;
+       color: #6a7582;
+       text-align: left;
+       background-color: #fff;
+       display: flex;
+       align-items: center;
+       justify-content: center;
+       margin-top: 5%;
+     }
+   
+   
+   a {
+       text-decoration: none!important;
+       color: gray;
+   }
+   
+   .mynav {
+       background-color: white!important;
+       top: 0;
+       width: 100%;
+       box-shadow: 0px -2px 15px rgba(255, 4, 4, 0.1); 
+   }
+   
+   
+     
+     .signUpNow {
+       border-radius: 0.125rem;
+       border-radius: 2px;
+       color: white;
+       background: linear-gradient(86deg, #436af5 0%, #8d78ff 100%);
+     }
+     
+   
+     
+     .bluestock-app {
+       background: linear-gradient(86deg, #436af5 0%, #8d78ff 100%)!important;
+       padding-left: 20px;
+       padding-right: 20px;
+   
+     }
+   
+     /*Footer*/
+     .social-icon{
+       color: #7752FE;
+     }
+   
+   .copyright {
+       display: flex;
+       justify-content: space-between;
+   }
+
+    .left, .right {
+        float: left;
+        width: 20%; /* The width is 20%, by default */
+    }
+
+    .main {
+        float: left;
+        width: 60%; /* The width is 60%, by default */
+    }
+      
+   @media screen and (max-width: 600px) {
+     .copyright {
+         flex-direction: column; 
+         align-items: center;
+     }
+    .left, .main, .right {
+        width: 100%; /* The width is 100%, when the viewport is 800px or smaller */
+    }
+   }
+   
+   .hyperlink{
+     color: #436AF5;
+   }
+
+   .maindiv{
+    width: 400px;
+    height: 715px;
+    display: flex;
+    flex-direction: column;
+   }
+
+   label{
+    margin-bottom: 8px;
+   }
+
+   #logo_top_div{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+   }
+
+   #logo_top{
+    width: 316.5px;
+    height: 51px;
+    margin-bottom: 40px;
+   }
+
+   #email{
+    margin-bottom: 16px;
+   }
+
+   #captchadiv{
+    margin-top: 24px;
+    display: flex;
+    flex-direction: row;
+    width: 363px;
+    border: solid black 1px;
+    border-radius: 18px;
+    padding: 7px;
+    padding-left: 20px;
+    padding-right: 20px;
+    align-items: center;
+    justify-content:space-between;
+   }
+
+   .form-control{
+    border: solid black 1px;
+   }
+
+   #captchaimg{
+    width: 48px;
+   }
+
+   #captchadiv .form-check-input:checked{
+    background-color:#12bf3a;
+   }
+
+   #logindiv{
+        margin-top: 16px;
+   }
+
+   #login{
+    width: 100%;
+    background: #685CFF;
+   }
+
+   #signinwith{
+    margin-top: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+   }
+
+   #divline{
+    height: 2px;
+    width: 100%;
+    background: #F4F5F7;
+    position: inherit;
+    z-index: -1;
+   }
+
+   #signintext{
+    display: flex;
+    height: 36px;
+    width: 128px;
+    background: #F4F5F7;
+    position:absolute;
+    align-items: center;
+    justify-content: center;
+   }
+
+   .col-md-3{
+    margin-top: 16px;
+    margin-bottom: 36px;
+    background: #E4E7EB;
+    width: 100%;
+    border-radius: 5px;
+   }
+
+   #createacc{
+     color: #3F52FF;
+     display: flex;
+     align-items: center;
+     justify-content: center;
+   }
+   </style>
+
+</head>
+<body>
+    <div class="maindiv">
+        <div id="logo_top_div">
+            <img src="./Assets/site_logo.png" alt="bluestockfintech.com" id="logo_top">
+        </div>
+        <form class="emailpass">
+            <div class="form-group" id="email">
+                <label>Email address</label>
+                <input type="email" class="form-control" aria-describedby="emailHelp" placeholder="johndoe@gmail.com">
+            </div>
+            <div class="form-group">
+                <label>Password</label>
+                <div class="input-group" id="show_hide_password">
+                    <input type="password" class="form-control" id="exampleInputPassword1" placeholder=". . . . . . . . . . . . . . .">
+                    <div class="input-group-addon">
+                        <i class="bi bi-eye-slash"></i>
+                    </div>
+                </div>
+            </div>
+        </form>
+        <div id="captchadiv">
+            <div class="form-group form-check">
+                <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                <label class="form-check-label" for="exampleCheck1">I'm not a robot</label>
+            </div>
+            <img src="./Assets/recaptcha.png" alt="recaptcha" id="captchaimg">
+        </div>
+        <div id="logindiv">
+            <div class="form-group form-check">
+                <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                <label class="form-check-label" for="exampleCheck1">Keep me signed in</label>
+            </div>  
+            <button type="button" class="btn btn-outline-light" id="login">Login</button>
+        </div>
+        <div id="signinwith">
+            <div id="divline"></div>
+            <div id="signintext"><span style="color: #999DA3;">or sign in with</span></div>
+        </div>
+        <div class="col-md-3">
+            <a class="btn btn-outline-dark" href="" role="button" style="text-transform:none; width: 100%; border: none;">
+            <img width="20px" style="margin-bottom:3px; margin-right:5px" alt="Google sign-in" src="./Assets/google.png" />
+            Continue with Google
+            </a>
+        </div>
+        <div id="createacc"><a href="" style="font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif; color: #3F52FF;">Create an account</a></div>
+    </div>
+</body>
+</html>
