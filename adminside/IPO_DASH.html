@@ -23,77 +23,70 @@
         }
 
         .header {
-            background-color: #fff;
-            padding: 20px;
-            border-radius: 5px;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-            margin-bottom: 0;
             display: flex;
             align-items: center;
             justify-content: space-between;
-            border-bottom: 1px solid #333;
+            border-bottom: 1px solid #ccc; /* Change border thickness and color */
         }
 
-        .header h1 {
-            margin-right: auto;
+        .logo-container {
+            background-color: #f1f2f7;
+            padding: 20px;
+            display: flex;
+            align-items: center;
+            margin-right: 60px;
         }
 
-        .header img.logo {
+        .logo-container img {
             width: 150px;
             height: auto;
         }
 
-        .header .user {
+        .search-container {
+            background-color: #fff;
+            padding: 20px;
+            flex-grow: 1;
+            box-shadow: 0 2px 5px rgba(255, 246, 246, 0.1);
+            display: flex;
+            justify-content: flex-start; /* Move search bar to the left */
+            align-items: center;
+            border:0px;
+        }
+
+        .search {
+            position: relative;
             display: flex;
             align-items: center;
-            margin-left: auto;
         }
 
-        .header .user img {
-            width: 30px;
-            height: 30px;
-            border-radius: 50%;
-            margin-right: 10px;
-        }
-
-        .header .user .username {
-            margin-right: 20px;
-        }
-
-        .header .notification img {
-            width: 24px;
-            height: 24px;
-        }
-
-        .header .search {
-            display: flex;
-            align-items: center;
-            margin-left: -500px;
-            margin-top: 10px;
-        }
-
-        .header .search input {
+        .search input {
             width: 625px;
             height: 32px;
-            padding: 8px;
+            padding: 8px 32px 8px 10px; /* Add padding to make room for the icon */
             border: 1px solid #ccc;
             border-radius: 5px;
-            color: #f1f2f7;
-            margin-right: 10px;
-            margin-bottom: 0px;
+            background-color: #f1f2f7;
+            color: #c7b2b2;
         }
 
-        .header .search button {
+        .search .fas {
+            position: absolute;
+            right: 10px; /* Position the icon inside the input field */
+            color: #ffd6d6;
+        }
+
+        .search button {
             background-color: #4CAF50;
             color: white;
             padding: 8px 12px;
             border: none;
             border-radius: 5px;
             cursor: pointer;
+            margin-left: 10px;
         }
 
-        .header .search button:hover {
-            background-color: #45a049;
+        .search button:hover {
+            color: #f0f0f0;
         }
 
         .main-content {
@@ -104,8 +97,8 @@
         .sidebar {
             background-color: #f1f2f7;
             padding: 20px;
-            border-radius: 5px;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            border-radius: 1px;
+            box-shadow: 0 2px 5px rgba(227, 219, 219, 0.1);
             width: 250px;
             height: calc(100vh - 80px); 
             overflow-y: auto;
@@ -141,7 +134,7 @@
         .content {
             background-color: #fff;
             padding: 20px;
-            border-radius: 5px;
+            border-radius: 0px;
             box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
             flex: 1;
         }
@@ -198,7 +191,7 @@
                 width: 200px;
             }
 
-            .header .search input {
+            .search input {
                 width: 150px;
             }
         }
@@ -208,7 +201,7 @@
                 width: 100%;
             }
 
-            .header .search input {
+            .search input {
                 width: 100px;
             }
         }
@@ -216,27 +209,17 @@
 </head>
 <body>
     <div class="header">
-        <div class="container-fluid">
-            <div class="row">
-                <div class="col-md-6">
-                    <h1 class="font-weight-bold">
-                        <div class="logo-container">
-                            <img class="logo" src="./Assets/site_logo.png" alt="Site Logo">
-                        </div>
-                    </h1>
-                </div>
-                <div class="col-md-6">
-                    <div class="search-container">
-                        <div class="search">
-                            <input type="text" placeholder="Search">
-                            <button><i class="fas fa-search"></i></button>
-                        </div>
-                    </div>
-                </div>
+        <div class="logo-container">
+            <img class="logo" src="./Assets/site_logo.png" alt="Site Logo">
+        </div>
+        <div class="search-container">
+            <div class="search">
+                <input type="text" placeholder="Search">
+                <i class="fas fa-search"></i>
             </div>
         </div>
     </div>
-    
+
     <div class="main-content">
         <div class="sidebar">
             <h4>Menu</h4>
@@ -317,14 +300,12 @@
                                 </div>
                                 <div class="col-md-4">
                                     <div class="circle" style="width: 30px; height: 30px;"></div>
-                                    
                                     <span>Ongoing</span>
                                     <span>2</span>
                                 </div>
                             </div>
                         </div>
                         <button class="btn btn-primary">View Report</button>
-                        
                     </div>
                 </div>
             </div>
