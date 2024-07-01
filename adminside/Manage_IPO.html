@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IPO Admin Dashboard</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-nBcXLRTsXmcSJaFKiVhXsDTJkJwlM73Z7cTN9usmMwe2LW4gZNp6h9tsQm3JD2lStkK4piX6yU7GhB0LTwZu1A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f5f5f5;
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+        .header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            border-bottom: 1px solid #ccc;
+        }
+        .logo-container {
+            background-color: #f1f2f7;
+            padding: 20px;
+            display: flex;
+            align-items: center;
+            margin-right: 60px;
+        }
+        .logo-container img {
+            width: 150px;
+            height: auto;
+        }
+        .search-container {
+            background-color: #fff;
+            padding: 20px;
+            flex-grow: 1;
+            box-shadow: 0 2px 5px rgba(255, 246, 246, 0.1);
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+            border: 0px;
+        }
+        .search {
+            position: relative;
+            display: flex;
+            align-items: center;
+        }
+        .search input {
+            width: 625px;
+            height: 32px;
+            padding: 8px 32px 8px 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            background-color: #f1f2f7;
+            color: #c7b2b2;
+        }
+        .search .fas {
+            position: absolute;
+            right: 10px;
+            color: #ffd6d6;
+        }
+        .main-content {
+            display: flex;
+            flex: 1;
+        }
+        .sidebar {
+            background-color: #f1f2f7;
+            padding: 20px;
+            box-shadow: 0 2px 5px rgba(227, 219, 219, 0.1);
+            width: 250px;
+            height: calc(100vh - 80px);
+            overflow-y: auto;
+        }
+        .sidebar h4 {
+            margin-bottom: 20px;
+        }
+        .sidebar ul {
+            list-style: none;
+            padding: 0;
+        }
+        .sidebar li {
+            margin-bottom: 10px;
+        }
+        .sidebar a {
+            display: block;
+            padding: 10px;
+            color: #000;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s, color 0.3s;
+        }
+        .sidebar a:hover, .sidebar a.active {
+            background-color: #e0e0e0;
+            color: #333;
+        }
+        .content {
+            background-color: #fff;
+            padding: 20px;
+            flex: 1;
+        }
+    
+        .content h1 {
+            margin-bottom: 30px;
+        }
+        .content h2 {
+            margin-bottom: 20px;
+        }
+        .content table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+        .content table th, .content table td {
+            padding: 8px;
+            text-align: left;
+        }
+        .content table th {
+            font-weight: bold;
+        }
+        .content .actions button {
+            padding: 5px 10px;
+            margin: 2px;
+            border: none;
+            border-radius: 3px;
+            cursor: pointer;
+        }
+        .content .status-ongoing {
+            width: 100px;
+            height: 31px;
+            top: 16px;
+            left: 833px;
+            border-radius: 22px;
+            background-color: #EBF9F1;
+            border: 1px solid #41BC63;
+            color: #41BC63;
+            cursor: pointer;
+        }
+        
+        .content .status-comming {
+            width: 100px;
+            height: 31px;
+            top: 16px;
+            left: 833px;
+            border-radius: 22px;
+            background-color: #FBF9F4;
+            border: 1px solid #BC9241;
+            color: #BC9241;
+            cursor: pointer;
+        }
+        .content .status-new-listed {
+            width: 100px;
+            height: 31px;
+            top: 16px;
+            left: 833px;
+            border-radius: 22px;
+            background-color: #FBF9F4;
+            border: 1px solid #BC4141;
+            color: #BC4141;
+            cursor: pointer;
+        }
+        .content .update {
+            width: 92px;
+            height: 37px;
+            background-color: #624DE3;
+            border-radius: 8px;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        .content .delete {
+            padding: 5px;
+            font-size: 14px;
+            border-radius: 3px;
+            cursor: pointer;
+            background-color: transparent;
+        }
+        .content .delete img {
+            width: 24px;
+            height: 24px;
+            margin-right: 3px;
+            background-color: none;
+            
+        }
+        .content .view {
+            padding: 5px;
+            font-size: 14px;
+            border-radius: 3px;
+            cursor: pointer;
+            background-color: transparent;
+        }
+        .content .view img {
+            width: 24px;
+            height: 24px;
+            margin-right: 3px;
+        }
+        .content table tbody tr {
+            background-color: #ffffff; 
+            margin-bottom: 10px; 
+        }
+
+        .content table tbody tr:nth-child(odd) {
+        background-color: #f1f2f7; 
+        }
+
+        .content .pagination {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 272px;
+            height: 32px;
+            margin-top: 20px;
+            margin-left: 16px;
+        }
+        .content .pagination button {
+            color: rgb(0, 0, 0);
+            border: 1px solid #ccc;
+            border-radius: 3px;
+            padding: 8px 12px;
+            margin: 0 5px;
+            cursor: pointer;
+        }
+        .content .pagination button.active {
+            border: 1px solid black;
+        }
+        @media (max-width: 768px) {
+            .sidebar {
+                width: 200px;
+            }
+            .search input {
+                width: 150px;
+            }
+        }
+        @media (max-width: 576px) {
+            .sidebar {
+                width: 100%;
+            }
+            .search input {
+                width: 100px;
+            }
+        }
+        .table-body {
+            background-color: #f9f9f9;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <div class="logo-container">
+            <img class="logo" src="./Assets/site_logo.png" alt="Site Logo">
+        </div>
+        <div class="search-container">
+            <div class="search">
+                <input type="text" placeholder="Search">
+                <i class="fas fa-search"></i>
+            </div>
+        </div>
+    </div>
+    <div class="main-content">
+        <div class="sidebar">
+            <h4>Menu</h4>
+            <ul>
+                <li><a href="#">Dashboard</a></li>
+                <li><a href="#" class="active">Manage IPO</a></li>
+                <li><a href="#">IPO Subscription</a></li>
+                <li><a href="#">IPO Allotment</a></li>
+            </ul>
+            <h4>Others</h4>
+            <ul>
+                <li><a href="#">Settings</a></li>
+                <li><a href="#">API Manager</a></li>
+                <li><a href="#">Accounts</a></li>
+                <li><a href="#">Help</a></li>
+            </ul>
+        </div>
+        <div class="content">
+            <h1>Upcoming IPO | Dashboard</h1>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Company</th>
+                        <th>Price Band</th>
+                        <th>Open</th>
+                        <th>Close</th>
+                        <th>ISSUE SIZE</th>
+                        <th>ISSUE Type</th>
+                        <th>Listing Date</th>
+                        <th>Status</th>
+                        <th>Action</th>
+                        <th>Delete/View</th>
+                    </tr>
+                </thead>
+                <tbody class="table-body">
+                    <tr>
+                       
+                        <td>Adani Power</td>
+                        <td>129 - 136</td>
+                        <td>2024-06-03</td>
+                        <td>2024-06-05</td>
+                        <td>130.15 Cr.</td>
+                        <td>Book Built</td>
+                        <td>2024-06-10</td>
+                        <td>
+                            <button class="status-ongoing">Ongoing</button>
+                        </td>
+                        <td>
+                            <button class="update">Update</button>
+                        </td>
+                        <td class="actions">
+                            <button class="delete"><img src="/bluestock-fintech/adminside/Assets/delete.png.png" alt="Delete"></button>
+                            <button class="view"><img src="/bluestock-fintech/adminside/Assets/view.png.png" alt="View"></button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>VBL</td>
+                        <td>129 - 136</td>
+                        <td>2024-06-03</td>
+                        <td>2024-06-05</td>
+                        <td>130.15 Cr.</td>
+                        <td>Book Built</td>
+                        <td>2024-06-10</td>
+                        <td>
+                            <button class="status-comming">Coming</button>
+                        </td>
+                        <td>
+                            <button class="update">Update</button>
+                        </td>
+                        <td class="actions">
+                            <button class="delete"><img src="/bluestock-fintech/adminside/Assets/delete.png.png" alt="Delete"></button>
+                            <button class="view"><img src="/bluestock-fintech/adminside/Assets/view.png.png" alt="View"></button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Tata Motor</td>
+                        <td>129 - 136</td>
+                        <td>2024-06-03</td>
+                        <td>2024-06-05</td>
+                        <td>130.15 Cr.</td>
+                        <td>Book Built</td>
+                        <td>2024-06-10</td>
+                        <td>
+                            <button class="status-new-listed">New Listed</button>
+                        </td>
+                        <td>
+                            <button class="update">Update</button>
+                        </td>
+                        <td class="actions">
+                            <button class="delete"><img src="/bluestock-fintech/adminside/Assets/delete.png.png" alt="Delete"></button>
+                            <button class="view"><img src="/bluestock-fintech/adminside/Assets/view.png.png" alt="View"></button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Indus Tower</td>
+                        <td>129 - 136</td>
+                        <td>2024-06-03</td>
+                        <td>2024-06-05</td>
+                        <td>130.15 Cr.</td>
+                        <td>Book Built</td>
+                        <td>2024-06-10</td>
+                        <td>
+                            <button class="status-comming">Coming</button>
+                        </td>
+                        <td>
+                            <button class="update">Update</button>
+                        </td>
+                        <td class="actions">
+                            <button class="delete"><img src="/bluestock-fintech/adminside/Assets/delete.png.png" alt="Delete"></button>
+                            <button class="view"><img src="/bluestock-fintech/adminside/Assets/view.png.png" alt="View"></button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>NSD India</td>
+                        <td>129 - 136</td>
+                        <td>2024-06-03</td>
+                        <td>2024-06-05</td>
+                        <td>130.15 Cr.</td>
+                        <td>Book Built</td>
+                        <td>2024-06-10</td>
+                        <td>
+                            <button class="status-new-listed">New Listed</button>
+                        </td>
+                        <td>
+                            <button class="update">Update</button>
+                        </td>
+                        <td class="actions">
+                            <button class="delete"><img src="/bluestock-fintech/adminside/Assets/delete.png.png" alt="Delete"></button>
+                            <button class="view"><img src="/bluestock-fintech/adminside/Assets/view.png.png" alt="View"></button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        
+            <div class="pagination">
+                <button>&lt;</button>
+                <button class="active">1</button>
+                <button>2</button>
+                <button>...</button>
+                <button>9</button>
+                <button>10</button>
+                <button>&gt;</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+</body>
+</html>
